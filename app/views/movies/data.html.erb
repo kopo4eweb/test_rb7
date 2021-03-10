@@ -1,0 +1,11 @@
+<h1>TOP 3 Movies</h1>
+
+<% @movies.each do |movie| %>
+  <p>
+    Title: <%= movie.title %> / Sessions: <%= movie.sessions %>
+  </p>
+<% end %>
+
+<% if @movies.length.zero? %>
+  <%= link_to 'back to main', root_path %>
+<% end %>
