@@ -1,0 +1,92 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.5.8
+  NewCops: enable
+  Exclude:
+    - app/assets/**/*
+    - app/views/**/*
+    - bin/**/*
+    - vendor/**/*
+    - db/**/*
+
+  Include:
+    - app/**/*
+    - spec/**/*
+
+  DisplayCopNames: true
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  EnforcedStyle: should
+
+Layout/LineLength:
+  Max: 120
+
+Layout/LeadingCommentSpace:
+  Exclude:
+    - Gemfile
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented_relative_to_receiver
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: template
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/HashTransformKeys:
+  Enabled: false
+
+Style/HashTransformValues:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/BlockComments:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Metrics/AbcSize:
+  Max: 40
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: non_integer
+
+Rails/FilePath:
+  Enabled: false
+
+Lint/EmptyFile:
+  Exclude:
+    - /**/.keep
