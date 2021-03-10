@@ -1,10 +1,12 @@
-class MoviesController < ApplicationController
-  MOVIES_URL = 'https://rb7.ru/afisha/movies'.freeze
+# frozen_string_literal: true
 
-  before_action :set_movies, only: [:index, :data]
+class MoviesController < ApplicationController
+  MOVIES_URL = 'https://rb7.ru/afisha/movies'
+
+  before_action :set_movies, only: %i[index data]
 
   def index
-    if @movies.length > 0
+    if @movies.length.positive?
       redirect_to movies_data_path
     else
       render :index
@@ -21,6 +23,6 @@ class MoviesController < ApplicationController
   private
 
   def set_movies
-    @movies = Movie.today_top_3
+    @movies = Movie.today_top(3)
   end
 end

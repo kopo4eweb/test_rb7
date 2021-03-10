@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 require 'open-uri'
 
@@ -8,19 +10,19 @@ class ParseService
   end
 
   def call
-    get_doc
+    load_doc
     parse_movies
   end
 
   private
 
-  def get_doc
-    @doc = Nokogiri::HTML(URI.open(@movies_url))
+  def load_doc
+    @doc = Nokogiri::HTML(URI.parse(@movies_url).open)
+    # @doc = Nokogiri::HTML(URI.open(@movies_url))
   end
 
   def parse_movies
     @doc.css('div.movie').each do |movie|
-      puts "#{extract_title(movie)} -> #{count_sessions(movie)}"
       Movie.create(title: extract_title(movie), sessions: count_sessions(movie))
     end
   end
