@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
           {
             start_date: Time.zone.now.at_beginning_of_day,
             end_date: Time.zone.now.at_end_of_day
-          }).order(sessions: :desc, created_at: :desc).limit(record_limit)
+          }).order(sessions: :desc).limit(record_limit)
   }
 
   validates :title, presence: false

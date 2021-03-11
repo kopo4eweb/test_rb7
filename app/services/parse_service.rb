@@ -18,7 +18,6 @@ class ParseService
 
   def load_doc
     @doc = Nokogiri::HTML(URI.parse(@movies_url).open)
-    # @doc = Nokogiri::HTML(URI.open(@movies_url))
   end
 
   def parse_movies
